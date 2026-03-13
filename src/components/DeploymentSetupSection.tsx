@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Cpu, Camera, Wifi, Play } from "lucide-react";
 
 const photos = [
-  { src: "/images/setup-full.jpeg", caption: "Full setup — Raspberry Pi + camera mounted above dustbin at Udman Kitchen" },
-  { src: "/images/setup-closeup.jpeg", caption: "Close-up — Raspberry Pi with camera module on wall-mounted shelf" },
-  { src: "/images/setup-wide.jpeg", caption: "Wide view — camera positioned to capture the waste bin area" },
+  { src: `${import.meta.env.BASE_URL}images/setup-full.jpeg`, caption: "Full setup — Raspberry Pi + camera mounted above dustbin at Udman Kitchen" },
+  { src: `${import.meta.env.BASE_URL}images/setup-closeup.jpeg`, caption: "Close-up — Raspberry Pi with camera module on wall-mounted shelf" },
+  { src: `${import.meta.env.BASE_URL}images/setup-wide.jpeg`, caption: "Wide view — camera positioned to capture the waste bin area" },
 ];
 
 const setupVideos = [
-  { src: "/videos/setup-video-1.mp4", caption: "Deployment walkthrough at Udman Hotels" },
-  { src: "/videos/setup-video-2.mp4", caption: "Live system in operation" },
+  { src: `${import.meta.env.BASE_URL}videos/setup-video-1.mp4`, caption: "Deployment walkthrough at Udman Hotels" },
+  { src: `${import.meta.env.BASE_URL}videos/setup-video-2.mp4`, caption: "Live system in operation" },
 ];
 
 const specs = [
@@ -36,7 +36,6 @@ const DeploymentSetupSection = () => {
           </p>
         </div>
 
-        {/* Specs bar */}
         <div className="flex justify-center gap-8 mb-12">
           {specs.map((s) => (
             <div key={s.label} className="flex items-center gap-3">
@@ -51,7 +50,6 @@ const DeploymentSetupSection = () => {
           ))}
         </div>
 
-        {/* Lightbox */}
         {activeMedia && (
           <div
             className="fixed inset-0 z-50 bg-foreground/80 flex items-center justify-center p-6"
@@ -73,7 +71,6 @@ const DeploymentSetupSection = () => {
           </div>
         )}
 
-        {/* Photos */}
         <div className="grid sm:grid-cols-3 gap-6 mb-8">
           {photos.map((photo) => (
             <div
@@ -93,7 +90,6 @@ const DeploymentSetupSection = () => {
           ))}
         </div>
 
-        {/* Videos */}
         <div className="grid sm:grid-cols-2 gap-6">
           {setupVideos.map((video) => (
             <div
@@ -110,7 +106,10 @@ const DeploymentSetupSection = () => {
                   preload="metadata"
                   className="w-full h-full object-cover"
                   onMouseEnter={(e) => e.currentTarget.play()}
-                  onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.pause();
+                    e.currentTarget.currentTime = 0;
+                  }}
                 />
                 <div className="absolute inset-0 bg-foreground/20 group-hover:bg-foreground/10 transition-all duration-300 flex items-center justify-center">
                   <div className="w-14 h-14 rounded-full bg-accent/90 flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
