@@ -2,21 +2,21 @@ import { useState } from "react";
 import { Play, Camera } from "lucide-react";
 
 const videos = [
-  { src: "/videos/chicken_curry.mp4", label: "Chicken Curry", category: "Finished" },
-  { src: "/videos/dal_tadka.mp4", label: "Dal Tadka", category: "Finished" },
-  { src: "/videos/corn_palak.mp4", label: "Corn Palak", category: "Finished" },
-  { src: "/videos/gobhi_mattar.mp4", label: "Gobhi Mattar", category: "Finished" },
-  { src: "/videos/chopped_onions.mp4", label: "Chopped Onions", category: "Prep" },
-  { src: "/videos/chopped_onions_2.mp4", label: "Chopped Onions (2)", category: "Prep" },
-  { src: "/videos/diced_vegetables_for_manchurian.mp4", label: "Diced Vegetables", category: "Prep" },
-  { src: "/videos/dahi_kebab_pre_prep.mp4", label: "Dahi Kebab Prep", category: "Prep" },
-  { src: "/videos/dahi_kebab_pre_prep_2.mp4", label: "Dahi Kebab Prep (2)", category: "Prep" },
-  { src: "/videos/dahi_kebab_pre_prep_3.mp4", label: "Dahi Kebab Prep (3)", category: "Prep" },
-  { src: "/videos/kheer.mp4", label: "Kheer", category: "Finished" },
-  { src: "/videos/paneer_makhni.mp4", label: "Paneer Makhni", category: "Finished" },
-  { src: "/videos/rice.mp4", label: "Rice", category: "Finished" },
-  { src: "/videos/mattar_mushroom_pre_prep.mp4", label: "Mattar Mushroom Prep", category: "Prep" },
-  { src: "/videos/mattar_mushroom_pre_prep_2.mp4", label: "Mattar Mushroom Prep (2)", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/chicken_curry.mp4`, label: "Chicken Curry", category: "Finished" },
+  { src: `${import.meta.env.BASE_URL}videos/dal_tadka.mp4`, label: "Dal Tadka", category: "Finished" },
+  { src: `${import.meta.env.BASE_URL}videos/corn_palak.mp4`, label: "Corn Palak", category: "Finished" },
+  { src: `${import.meta.env.BASE_URL}videos/gobhi_mattar.mp4`, label: "Gobhi Mattar", category: "Finished" },
+  { src: `${import.meta.env.BASE_URL}videos/chopped_onions.mp4`, label: "Chopped Onions", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/chopped_onions_2.mp4`, label: "Chopped Onions (2)", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/diced_vegetables_for_manchurian.mp4`, label: "Diced Vegetables", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/dahi_kebab_pre_prep.mp4`, label: "Dahi Kebab Prep", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/dahi_kebab_pre_prep_2.mp4`, label: "Dahi Kebab Prep (2)", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/dahi_kebab_pre_prep_3.mp4`, label: "Dahi Kebab Prep (3)", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/kheer.mp4`, label: "Kheer", category: "Finished" },
+  { src: `${import.meta.env.BASE_URL}videos/paneer_makhni.mp4`, label: "Paneer Makhni", category: "Finished" },
+  { src: `${import.meta.env.BASE_URL}videos/rice.mp4`, label: "Rice", category: "Finished" },
+  { src: `${import.meta.env.BASE_URL}videos/mattar_mushroom_pre_prep.mp4`, label: "Mattar Mushroom Prep", category: "Prep" },
+  { src: `${import.meta.env.BASE_URL}videos/mattar_mushroom_pre_prep_2.mp4`, label: "Mattar Mushroom Prep (2)", category: "Prep" },
 ];
 
 const categories = ["All", "Finished", "Prep"];
@@ -42,7 +42,6 @@ const DemoVideosSection = () => {
           </p>
         </div>
 
-        {/* Category filter */}
         <div className="flex justify-center gap-3 mb-10">
           {categories.map((cat) => (
             <button
@@ -59,7 +58,6 @@ const DemoVideosSection = () => {
           ))}
         </div>
 
-        {/* Expanded video modal */}
         {activeVideo && (
           <div
             className="fixed inset-0 z-50 bg-foreground/80 flex items-center justify-center p-6"
@@ -82,7 +80,6 @@ const DemoVideosSection = () => {
           </div>
         )}
 
-        {/* Video grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((video) => (
             <div
